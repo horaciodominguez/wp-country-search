@@ -1,0 +1,6 @@
+# .gitignore
+.DS_Store
+node_modules/
+.vscode/
+*.log
+*.zip
