@@ -1,0 +1,10 @@
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  background-color: #fff;
+  height: 46px;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
