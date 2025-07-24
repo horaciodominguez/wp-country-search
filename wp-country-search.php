@@ -10,8 +10,23 @@
 
 defined('ABSPATH') || exit;
 
-// Add this before the enqueue action
+// logic
 require_once plugin_dir_path(__FILE__) . 'includes/loader.php';
+
+require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
+
+// Register admin page
+add_action('admin_menu', function () {
+    add_options_page(
+        'WP Country Search',
+        'Country Search',
+        'manage_options',
+        'csb_settings',
+        'csb_options_page'
+    );
+});
+
+add_action('admin_init', 'csb_register_settings');
 
 
 /**
