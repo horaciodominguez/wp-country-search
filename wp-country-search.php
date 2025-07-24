@@ -10,6 +10,10 @@
 
 defined('ABSPATH') || exit;
 
+// Add this before the enqueue action
+require_once plugin_dir_path(__FILE__) . 'includes/loader.php';
+
+
 /**
  * Enqueue plugin styles and scripts
  */
