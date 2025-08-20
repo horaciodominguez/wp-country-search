@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Country Search - Core Plugin Logic
+ * WP Country Search - Core
  */
 
 defined('ABSPATH') || exit;
