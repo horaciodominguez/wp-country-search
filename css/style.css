@@ -1,0 +1,30 @@
+.csb-search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+  border-radius: 6px;
+  padding: 5px 10px;
+  background-color: #fcfcfc;
+  gap: 6px;
+}
+
+.csb-search-form input[type="search"] {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.csb-search-form select ,
+.csb-search-form input[type="search"],
+.csb-search-form button
+{
+  border: none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+}
