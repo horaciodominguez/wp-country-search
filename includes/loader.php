@@ -1,20 +1,20 @@
 <?php
-/**
- * WP Country Search - Core
- */
-
 defined('ABSPATH') || exit;
 
 /**
- * Register the [country_search_bar] shortcode
+ * Register shortcode to display search bar
  */
-add_shortcode('country_search_bar', 'csb_render_search_bar');
+function csb_register_shortcode() {
+    add_shortcode('country_search_bar', 'csb_render_search_bar');
+}
+add_action('init', 'csb_register_shortcode');
 
 /**
- * Renders the search bar using an external template
+ * Render search bar template
  */
-function csb_render_search_bar($atts = []) {
+function csb_render_search_bar() {
     ob_start();
     include plugin_dir_path(__FILE__) . '../templates/search-bar.php';
     return ob_get_clean();
 }
+?>
