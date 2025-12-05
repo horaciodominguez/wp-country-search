@@ -6,9 +6,26 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid #eee;
-  border-radius: 15px;
-  padding: 5px 10px;
-  gap: 6px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 4px 0px rgba(255,255,255,1);
+  padding: 10px 10px;
+  gap: 10px;
+  background: #f9f9f9;
+  position: relative;
+  
+}
+
+.csb-search-form::after {
+  content: "";
+  flex-grow: 1;
+  width: 98%;
+  background: #f0f0f0;
+  height: 1px;
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #f9f9f9;
 }
 
 .csb-search-form input[type="search"] {
