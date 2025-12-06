@@ -15,6 +15,9 @@ require_once plugin_dir_path(__FILE__) . 'includes/product-country-tab.php';
 require_once plugin_dir_path(__FILE__) . 'includes/search-filter.php';
 require_once plugin_dir_path(__FILE__) . 'includes/loader.php';
 
+//admin
+require_once plugin_dir_path(__FILE__) . 'admin/settings.php';
+
 //css
 function csb_enqueue_styles() {
     wp_enqueue_style(
