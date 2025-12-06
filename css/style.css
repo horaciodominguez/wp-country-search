@@ -1,49 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+/* 1. Importar la fuente Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
 
+/* 2. Variables CSS (Paleta Clara y Limpia) */
+:root {
+  --font-primary: 'Quicksand', sans-serif;
+  --bg-light: #ffffff; /* Fondo blanco puro para los campos */
+  --bg-form: #f9f9f9; /* Fondo muy claro para el formulario (sutil contraste) */
+  --text-primary: #1f2937; /* Texto oscuro de alto contraste */
+  --text-secondary: #6b7280; /* Texto gris para placeholder y guías */
+  --accent-color: #007bff; /* Azul primario moderno y vibrante */
+  --border-color: #e5e7eb; /* Borde muy sutil */
+  --border-radius: 8px;
+  --spacing-base: 1rem;
+}
+
+/* 3. Estilo del Contenedor del Formulario (Barra Elevada y Limpia) */
 .csb-search-form {
+  /* Diseño Flexbox */
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: calc(var(--spacing-base) / 2); /* Espacio reducido entre elementos */
   align-items: center;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  box-shadow: inset 0 0 4px 0px rgba(255,255,255,1);
-  padding: 10px 10px;
-  gap: 10px;
-  background: #f9f9f9;
-  position: relative;
+
+  /* Estilo de tarjeta/barra limpia */
+  background-color: var(--bg-form);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem; 
+  /* Sombra sutil para "elevar" la barra sobre el fondo blanco de la web */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
   
+  max-width: 850px;
+  font-family: var(--font-primary);
 }
 
-.csb-search-form::after {
-  content: "";
+/* 4. Estilo General de los Campos de Entrada */
+.csb-country-selector,
+.csb-search-field {
   flex-grow: 1;
-  width: 98%;
-  background: #f0f0f0;
-  height: 1px;
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-bottom: 1px solid #f9f9f9;
-}
-
-.csb-search-form input[type="search"] {
-  flex: 1;
-  border: none;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 1rem;
+  
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color); /* Borde inicial */
+  border-radius: calc(var(--border-radius) - 4px);
   outline: none;
+  transition: all 0.2s ease;
+  
+  background-color: var(--bg-light); 
+  color: var(--text-primary);
 }
 
-.csb-search-form select ,
-.csb-search-form input[type="search"],
-.csb-search-form button
-{
+/* Placeholders (Texto secundario discreto) */
+.csb-search-field::placeholder {
+  color: var(--text-secondary);
+}
+
+/* 5. Estilo Específico del Selector de País */
+.csb-country-selector {
+  flex-basis: 220px;
+  appearance: none; /* Eliminar el estilo nativo para un look más moderno */
+}
+
+/* 6. Efecto de Foco/Hover (El toque de acento minimalista) */
+.csb-country-selector:hover,
+.csb-search-field:hover {
+  border-color: #c9c9c9; /* Borde ligeramente más oscuro en hover */
+}
+
+.csb-country-selector:focus,
+.csb-search-field:focus {
+  /* Borde de acento que se ilumina con el color primario */
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); /* Anillo de foco sutil */
+}
+
+/* 7. Estilo del Botón de Envío (Botón de Acento) */
+.csb-search-submit {
+  /* Botón más compacto */
+  padding: 0.8rem 1rem; 
   border: none;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 8px;
-  font-size: 12px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
+  border-radius: calc(var(--border-radius) - 4px);
+  background-color: var(--accent-color);
+  color: var(--bg-light); /* Icono en blanco sobre el fondo azul */
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1; 
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  font-weight: 600; /* Quicksand semi-bold */
+}
+
+/* 8. Efecto Hover/Active del Botón */
+.csb-search-submit:hover {
+  background-color: #0056b3; 
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.csb-search-submit:active {
+  transform: translateY(1px); 
+}
+
+/* Aseguramos que el SVG tome el color blanco del texto del botón */
+.csb-search-submit {
+  /* ... estilos previos ... */
+  display: flex; /* Asegura que el contenido (el SVG) se centre */
+  justify-content: center;
+  align-items: center;
+  /* El color del texto del botón, que será el color del SVG */
+  color: var(--bg-light); 
+}
+
+.search-icon {
+  width: 1.2rem; /* Tamaño del icono */
+  height: 1.2rem;
+  /* currentColor hace que el SVG herede el 'color' del botón (blanco) */
+  stroke: currentColor; 
+}
+
+/* 9. Responsividad para dispositivos móviles */
+@media (max-width: 650px) {
+  .csb-search-form {
+    flex-direction: column; 
+    gap: 0.5rem;
+    padding: 1rem;
+    box-shadow: none; /* Mejor experiencia sin sombra en móvil */
+    border: none;
+    background-color: transparent; /* Integrar más con el fondo del plugin/web */
+  }
+
+  .csb-country-selector,
+  .csb-search-field,
+  .csb-search-submit {
+    width: 100%; 
+    box-sizing: border-box; 
+  }
 }
