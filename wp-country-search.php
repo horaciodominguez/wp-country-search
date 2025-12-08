@@ -29,8 +29,6 @@ function csb_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'csb_enqueue_styles');
 
-
-
 // REST endpoint to get countries (from CPT)
 add_action('rest_api_init', function () {
     register_rest_route('csb/v1', '/countries', [
@@ -92,37 +90,4 @@ add_action('wp_enqueue_scripts', function () {
     wp_localize_script('csb-search', 'CSB_VARS', [
         'home_url' => home_url('/'),
     ]);
-});
-
-
-// TEMP DEBUG - remove after testing
-add_action('admin_notices', function() {
-    if (!current_user_can('manage_options')) return;
-    if (!isset($_GET['product_country'])) return;
-
-    $country_id = intval($_GET['product_country']);
-    if ($country_id <= 0) return;
-
-    $args = [
-        'post_type' => 'product',
-        'posts_per_page' => -1,
-        'meta_query' => [
-            'relation' => 'OR',
-            [
-                'key' => 'csb_product_countries',
-                'value' => 'i:' . $country_id . ';',
-                'compare' => 'LIKE',
-            ],
-            [
-                'key' => 'csb_product_countries',
-                'value' => '"' . $country_id . '"',
-                'compare' => 'LIKE',
-            ],
-        ],
-    ];
-
-    $q = new WP_Query($args);
-    $ids = wp_list_pluck($q->posts, 'ID');
-
-    
 });

@@ -25,11 +25,11 @@ function csb_register_product_country_cpt() {
 
     $args = [
         'labels'             => $labels,
-        'public'             => false,            // not publicly queryable
+        'public'             => false,
         'show_ui'            => true,
-        'show_in_menu'       => 'edit.php?post_type=product', // appear under Products menu
+        'show_in_menu'       => 'edit.php?post_type=product',
         'capability_type'    => 'post',
-        'supports'           => ['title'],        // just title needed (country name)
+        'supports'           => ['title'],
         'has_archive'        => false,
         'rewrite'            => false,
     ];

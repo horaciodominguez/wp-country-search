@@ -72,7 +72,7 @@ add_action('woocommerce_product_data_panels', function() {
 
 
 /**
- * Save product countries — FINAL, FIXED, NO DUPLICATES
+ * Save product countries
  */
 add_action('woocommerce_admin_process_product_object', function($product) {
 
