@@ -47,7 +47,13 @@
 .csb-country-selector {
   flex-basis: 220px;
   appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%236b7280' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem !important;
 }
+
 
 .csb-country-selector:hover,
 .csb-search-field:hover {

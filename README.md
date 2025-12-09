@@ -20,7 +20,7 @@ WP Country Search is a simple WordPress plugin that allows WooCommerce stores to
 
 ### **Shortcode**
 
-[csb_search_bar]
+[wp_country_search_bar]
 
 Place it anywhere in:
 - Pages
